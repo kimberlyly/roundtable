@@ -2,7 +2,8 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
-var io = require('socket.io')(http);
+var server = http.createServer(app);
+var io = require('socket.io')(server);
 var index = require('./routes/index');
 //var chat = require('./routes/chat');
 
@@ -23,6 +24,6 @@ app.get('/', index.view);
 io.on('connection', function(socket) {
 	console.log('a user connected');
 });
-http.createServer(app).listen(app.get('port'), function() {
+server.listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
 });
