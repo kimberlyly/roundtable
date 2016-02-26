@@ -2,12 +2,11 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
-var server = http.createServer(app);
-var io = require('socket.io')(server);
 var index = require('./routes/index');
 //var chat = require('./routes/chat');
-
 var app = express();
+var server = http.createServer(app);
+var io = require('socket.io')(server);
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -21,9 +20,10 @@ app.get('/', index.view);
 
 //app.get('/chat', chat.view);
 
-io.on('connection', function(socket) {
-	console.log('a user connected');
-});
 server.listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
+});
+
+io.on('connection', function(socket) {
+	console.log('a user connected');
 });
