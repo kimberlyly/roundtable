@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Socket.IO chat</title>
-    <link rel="stylesheet" type="text/css" href="css/chat.css">
-  </head>
-  <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-    <script src="/js/chat.js"></script>
-  </body>
+    <head>
+        <title>Socket.IO chat</title>
+        <link rel="stylesheet" type="text/css" href="css/chat.css">
+    </head>
+    <body>
+        <div id="chat-wrapper" class="wrapper">
+            <div id="chat" class="panel">
+                <div id="messages">
+                    <div class="message">
+                        <div class="initials">FT</div>
+                        <div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, a optio obcaecati repellat eum nesciunt fuga perferendis adipisci qui alias nulla. Quibusdam repudiandae vero, necessitatibus ratione sed cumque quas temporibus?</div>
+                    </div>
+                    
+                </div>
+                
+                <form id="chat-input" action="">
+                    <input placeholder="Start typing here..." type="text" autocomplete="off" />
+                    <button>Send</button>
+                </form>
+            </div>
+        </div>
+        <div id="start">
+            <form action="">
+                <input type="text" name="first_name" placeholder="First Name" />
+                <input type="text" name="last_name" placeholder="Last Name" />
+                <button>Let's Go</button>
+            </form>
+        </div>
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+        <script src="/js/chat.js"></script>
+    </body>
 </html>
